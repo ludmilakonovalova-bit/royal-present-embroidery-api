@@ -1,0 +1,117 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Royal Present Embroidery API",
+        "version": "v1.0.0",
+        "description": "API for searching and exploring machine embroidery designs, categories, and hoop sizes from Royal Present Embroidery.",
+        "contact": {
+            "name": "Royal Present Embroidery Support",
+            "email": "support@royalpresentembroidery.com",
+            "url": "https://royal-present.com/contact-us/"
+        },
+        "x-logo": {
+            "url": "https://royal-present.com/images/logo-1000.png",
+            "backgroundColor": "#ffffff",
+            "altText": "Royal Present Embroidery"
+        },
+        "termsOfService": "https://royal-present.com/online-shop-terms-conditions-use/",
+        "license": {
+            "name": "Creative Commons Attribution 4.0",
+            "url": "https://creativecommons.org/licenses/by/4.0/"
+        }
+    },
+    "servers": [
+        {
+            "url": "https://royal-present.com",
+            "description": "Production server"
+        }
+    ],
+    "paths": {
+        "/api/gpt/categories/": {
+            "get": {
+                "summary": "Get embroidery design categories",
+                "description": "Returns a list of available design categories. You can optionally filter by parent category.",
+                "operationId": "searchCategories",
+                "parameters": [
+                    {
+                        "name": "parent",
+                        "in": "query",
+                        "description": "Parent category ID or slug",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response"
+                    }
+                }
+            }
+        },
+        "/api/gpt/hoops/": {
+            "get": {
+                "summary": "List embroidery hoop sizes",
+                "description": "Returns all supported hoop dimensions and size codes.",
+                "operationId": "getHoops",
+                "responses": {
+                    "200": {
+                        "description": "List of hoops returned successfully"
+                    }
+                }
+            }
+        },
+        "/api/gpt/designs/": {
+            "get": {
+                "summary": "Search embroidery designs",
+                "description": "Search embroidery designs by name, category, or hoop size. Returns paginated results with name, image, price, and URL.",
+                "operationId": "searchDesigns",
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "description": "Search term",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "categoryId",
+                        "in": "query",
+                        "description": "Category ID",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "hoop",
+                        "in": "query",
+                        "description": "Hoop size",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Pagination page",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful search response"
+                    }
+                }
+            }
+        }
+    }
+}
