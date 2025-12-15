@@ -1,0 +1,19 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "Royal Present Embroidery",
+    "name_for_model": "royal_present_embroidery",
+    "description_for_human": "Search and explore machine embroidery designs, categories, and hoop sizes.",
+    "description_for_model": "Search embroidery designs, categories, and hoop dimensions.",
+    "auth": {
+        "type": "none"
+    },
+    "api": {
+        "type": "openapi",
+        "url": "https://royal-present.com/api/gpt/openapi.json"
+    },
+    "logo_url": "https://royal-present.com/images/logo-1000.png",
+    "contact_email": "support@royal-presentembroidery.com",
+    "legal_info_url": "https://royal-present.com/online-shop-terms-conditions-use/",
+    "author": "Royal Present Embroidery",
+    "updated_at": "2025-12-08T17:09:02+00:00"
+}
